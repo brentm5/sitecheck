@@ -14,7 +14,7 @@ app.configure(function() {
 
 
 app.get('/', function(request, response) {
-  response.sendfile('public/index.html');
+  response.render('index.html');
 });
 
 app.get('/api', function(req, resp) {
