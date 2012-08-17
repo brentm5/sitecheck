@@ -6,6 +6,13 @@ var request = require('request');
 var app = express();
 var port = process.env.PORT || 3000;
 
+app.configure(function() {
+  app.use(express.static(__dirname + '/public'));
+});
+
+
+
+
 app.get('/', function(request, response) {
   response.sendfile('public/index.html');
 });
