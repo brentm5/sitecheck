@@ -8,13 +8,18 @@ var port = process.env.PORT || 3000;
 
 app.configure(function() {
   app.use(express.static(__dirname + '/public'));
+  app.use(express.bodyParser());
+  app.use(express.methodOverride());
+  app.use(express.logger());
+  app.use(express.errorHandler({
+    dumpExceptions: true, 
+    showStack: true
+  }));
+  app.use(app.router);
 });
 
-
-
-
-app.get('/', function(request, response) {
-  response.render('index.html');
+app.get('/', function(req, resp) {
+  resp.render('index.html');
 });
 
 app.get('/api', function(req, resp) {
