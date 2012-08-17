@@ -4,6 +4,7 @@ var request = require('request');
 
 
 var app = express();
+var port = process.env.PORT || 3000;
 
 app.get('/', function(request, response) {
   response.sendfile('index.html');
@@ -29,4 +30,4 @@ app.get('/api', function(req, resp) {
     }
 });
 
-app.listen(80);
+app.listen(port);
