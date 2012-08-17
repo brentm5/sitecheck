@@ -1,0 +1,16 @@
+{
+  "name": "sitecheck",
+  "version": "0.0.1",
+  "description": "Site Check is a way to check if a website is up",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:bigbam505/sitecheck.git"
+  },
+  "author": "Brent Montague",
+  "license": "BSD",
+  "dependencies": {
+    "express": "3.0.0rc3",
+    "fs": "0.0.0",
+    "request": "~2.10.0"
+  }
+}

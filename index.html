@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>Site Check</title>
+    <style type="text/css">
+      div#answer {
+        margin-left: auto;
+        margin-right: auto;
+        width: 500px;
+        text-align: center;
+        font-size: 50px;
+      }
+
+      .alive {
+        color: #0F0;
+      }
+
+      .dead {
+        color: #F00;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="/api" method="GET">
+      Enter a website to check: <input id="siteBox" name="s" value="" />
+    </form>
+    <div id="answer">The answer will show up here</div>
+  </body>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+        $('form').bind('submit', function(e) {
+          $.ajax({ url: $(this).attr('action'), data: $(this).serialize()}).done(function (data) {
+              var serverResp = $.parseJSON(data);
+              $('div#answer').html("<div id=\"response\">" + serverResp.status + "</div>");
+                $('div#response').addClass(serverResp.class);
+          });
+          return false;
+        });
+    });
+  </script>
+</html>
